@@ -1,9 +1,12 @@
 <h1>AjaxApp</h1>
 <%#newとcreateファイルを削除するとメモ投稿フォームがなくなってしまうので↓ブロックのコードを追加%>
   <%= form_with url: "/posts", method: :post,id: "form" do |form| %>
-  <%= form.text_field :content %>
+  <%= form.text_field :content  , id: "content"%><%#memoファイルでcontentを取得するためにidを指定%>
   <%= form.submit '投稿する' , id: "submit" %>
 <% end %>
+
+<div id="list"><%#投稿後にメモを追加する要素%>
+</div>
 
 <% @posts.each do |post| %>
 <%#data-idとdata-checkのカスタムデータ属性を追加%>
